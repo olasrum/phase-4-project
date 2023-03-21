@@ -1,13 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: "Satisfy";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(247, 247, 247);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+#main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  margin-bottom: 35px;
+}
+
+.birdhouses-images {
+  width: 100px;
+  height: 100px;
+  object-fit: cover; 
+  padding: 5px;
+}
+
+#container {
+  position: relative;
+}
+
+#name {
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  font-weight: bolder;
+  color: black;
+  
+}
+
+#description {
+  display: inline-block;
+  position: relative;
+  bottom: 60px;
+  font-style: italic;
+}
+
+#price {
+  display: inline-block;
+  position: absolute;
+  margin-left: 150px;
+  top: 2px;
+   }
+
+#home, #logout, #about {
+  margin: 50px 50px 0 50px;
+  font-size: 1.75rem;
+}
+
+ .login{
+  background-image: url("https://images.pexels.com/photos/2292069/pexels-photo-2292069.jpeg?auto=compress&cs=tinysrgb&w=800");
+  background-size: 1500px 1000px;
+  background-repeat: no-repeat;
+  padding-bottom: 500px;
+ }
+
+ /* input, label {
+  display: block;
+  margin-left: 670px;
+  } */
+
+#input-username, #input-password, #input-password_confirmation {
+  margin-left: 670px;
+  display: block;
+}
+
+#login-username {
+  padding-top: 40px;
+  font-size: 1.2em;
+  margin-left: 670px;
+}
+
+#login-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 670px;
+}
+
+#signup-username {
+  padding-top:40px;
+  font-size: 1.2em;
+  margin-left: 670px;
+}
+
+#signup-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 670px;
+}
+
+#signup-confirm-password {
+  padding-top: 20px;
+  font-size: 1.2em;
+  margin-left: 670px;
+
+}
+
+ #login-button {
+  margin-left: 720px;
+  margin-top: 10px;
+  font-size: 1em;
+ }
+
+ 
+ #login-button2 {
+  display: block;
+  margin-left: 50px;
+  font-size: .85em;
+  margin-top: 10px;
+ }
+
+ #signup-button {
+  display: block;
+  margin-left: 45px;
+  margin-top: 10px;
+  font-size: 0.8em;
+ }
+
+ #signup-button2 {
+  margin-left: 715px;
+  margin-top: 15px;
+  font-size: 1em;
+ }
+
+ #dont-account {
+  padding-top: 20px;
+  margin-left: 670px;
+  font-size: 1.2em;
+ }
+
+ #have-account {
+  margin-left: 670px;
+  font-size: 1.2em;
+ }
+
+ #login-header {
+  margin: 0;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 4em;
+  font-family: "Satisfy";
+ }
+
+ p {
+  font-size: 1.3em;
+  margin-right: 80px;
+ }
+
+ #about-div {
+  margin-top: 80px;
+ }
+
+ span {
+  padding-right: 10px;
+ }
+
+@media screen and (max-height: 450px) {
+  #sidenav {padding-top: 15px;}
+  #sidenav p {font-size: 18px;}
 }
