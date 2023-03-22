@@ -1,14 +1,19 @@
 import {useState} from "react";
 import EditReview from "./EditReview"
 
-function Review({id, content, onDeleteReview, onUpdateReview}) {
+function Review({review, onDeleteReview, onUpdateReview}) {
     const [isEditing, setIsEditing] = useState(false);
 
     function handleDeleteClick() {
-        fetch(`/reviews/${id}`, {
-            method: "DELETE"
+        fetch(`/reviews/${review.id}`, {
+            method: "DELETE",
+        }).then((r) => {
+            if (r.ok) {
+                onDeleteReview(review);
+            } else {
+                r.json().then((err) => alert(err.errors));
+            }
         });
-        onDeleteReview(id)
     }
 
     function handleUpdateReview(updatedReview) {
@@ -21,12 +26,12 @@ function Review({id, content, onDeleteReview, onUpdateReview}) {
             <li>
                 {isEditing ? (
                     <EditReview
-                    id={id}
-                    content={content}
+                    id={review.id}
+                    content={review.content}
                     onUpdateReview={handleUpdateReview}
                     />
                     ) : (
-                    <span id="review-content">{content}</span>
+                    <span id="review-content">{review.content}</span>
                     )}
                     <button 
                     type="button"
@@ -35,7 +40,7 @@ function Review({id, content, onDeleteReview, onUpdateReview}) {
                     >✏️</button>
                     <button
                     id="delete-button"
-                    onClick={handleDeleteClick}
+                    onClick={() => handleDeleteClick(review)}
                     >🗑</button>
             </li>
         </div>

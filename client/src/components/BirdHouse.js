@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useResolvedPath } from "react-router-dom";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 
@@ -32,8 +32,15 @@ function BirdHouse() {
         .then((user) => setUser(user));
     }, [id]);
 
-    function handleDeleteReview(reviewId) {
-        setBirdHouse(birdHouse.reviews.filter((element) => (element.id !== reviewId)))
+    function handleDeleteReview(deleteReview) {
+        setBirdHouse({
+            data: {
+                ...birdHouse,
+                reviews: birdHouse.reviews.filter((r) => r.id !== deleteReview.id),
+            },
+            error: null,
+            status: "resolved",
+        });
     }
 
     function handleUpdateReview(updatedReview) {
@@ -44,11 +51,22 @@ function BirdHouse() {
                 return rev;
             }
         });
-        setBirdHouse(updatedReviews);
+        setBirdHouse({
+            data: {
+                ...birdHouse,
+                reviews: updatedReviews,
+            },
+            error: null,
+            status: "resolved",
+        });
     }
 
-    function addNewReview(newReview) {
-        setBirdHouse([...birdHouse.reviews, newReview])
+    function handleAddReview(newReview) {
+        setBirdHouse({
+            data: {...birdHouse, reviews:[...birdHouse.reviews, newReview]},
+            error: null,
+            status: "resolved",
+        });
     }
 
     if (status === "pending") return <h1>Loading...</h1>
@@ -65,14 +83,13 @@ function BirdHouse() {
             {birdHouse.reviews.map((review) => (
             <Review
                 key={review.id}
-                id={review.id}
-                content={review.content}
+                review={review}
                 onDeleteReview={handleDeleteReview}
                 onUpdateReview={handleUpdateReview}
             />))}
             <br></br>
             <ReviewForm 
-            addNewReview={addNewReview}
+            handleAddReview={handleAddReview}
             birdHouseId={birdHouse.id}
             userId={user.id}
             />

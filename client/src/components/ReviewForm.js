@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function ReviewForm({birdHouseId, userId, addNewReview}) {
+function ReviewForm({birdHouseId, userId, handleAddReview}) {
     const [newReviewContent, setNewReviewContent] = useState("");
 
     function handleContentChange(e) {
@@ -24,7 +24,7 @@ function ReviewForm({birdHouseId, userId, addNewReview}) {
         })
             .then((r) => r.json())
             .then((newReview) => {
-                addNewReview(newReview);
+                handleAddReview(newReview);
                 setNewReviewContent("");
             });
     }
