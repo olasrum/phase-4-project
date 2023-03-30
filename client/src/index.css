@@ -186,9 +186,6 @@ h1 {
   padding-right: 10px;
  }
 
- .individual-birdhouse-image {
-  height: 10%;
- }
 
 @media screen and (max-height: 450px) {
   #sidenav {padding-top: 15px;}
