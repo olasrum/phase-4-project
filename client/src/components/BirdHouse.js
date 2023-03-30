@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams, useResolvedPath } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 import Review from "./Review";
 import ReviewForm from "./ReviewForm";
 
@@ -74,10 +74,10 @@ function BirdHouse() {
 
     return (
         <div>
-        <img src={birdHouse.image} alt={birdHouse.name}></img>
-        <div>{birdHouse.name}</div>
-        <div>${birdHouse.price}</div>
-        <div>{birdHouse.description}</div>
+        <img style={{ width: '500px', height: '500px' }} src={birdHouse.image} alt={birdHouse.name}></img>
+        <div id="birdhouse-name"><span style={{ fontWeight: 'bold' }}>Name: </span>{birdHouse.name}</div>
+        <div><span style={{ fontWeight: 'bold' }}>Price: </span> ${birdHouse.price}</div>
+        <div><span style={{ fontWeight: 'bold' }}>Desc: </span>{birdHouse.description}</div>
         <h4>Reviews:</h4>
         <ul>
             {birdHouse.reviews.map((review) => (

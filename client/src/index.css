@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
+
 body {
   margin: 0;
   padding: 0;
@@ -183,6 +184,10 @@ h1 {
 
  span {
   padding-right: 10px;
+ }
+
+ .individual-birdhouse-image {
+  height: 10%;
  }
 
 @media screen and (max-height: 450px) {
