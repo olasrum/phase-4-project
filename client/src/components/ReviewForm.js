@@ -29,7 +29,6 @@ function ReviewForm({birdHouseId, userId, handleAddReview}) {
             });
     }
     
-    //it's not working 
     return (
         <div>
             <form onSubmit={handleSubmit} id="new-review-form">
