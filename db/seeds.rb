@@ -11,11 +11,11 @@ puts "🌱 Seeding spices..."
 #create users
 puts 'Seeding users..'
 
-user1 = User.create(username: 'feathers')
-user2 = User.create(username: 'blackbird')
-user3 = User.create(username: 'songbird')
-user4 = User.create(username: 'beaky')
-user5 = User.create(username: 'wings')
+user1 = User.create(username: 'feathers', password: '123')
+user2 = User.create(username: 'blackbird', password: '456')
+user3 = User.create(username: 'songbird', password: '789')
+user4 = User.create(username: 'beaky', password: '321')
+user5 = User.create(username: 'wings', password: '654')
 
 # create bird houses
 puts 'Seeding Bird houses..'
